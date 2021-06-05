@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Timeline } from "react-twitter-widgets";
 import SmartForm from "../smart-form/smart-form";
 
 const TwittweSearch = () => {
+  const [screenName, setScreenName] = useState("hubble_space");
   return (
     <div>
       <Timeline
         dataSource={{
           sourceType: "profile",
-          screenName: "hubble_space",
+          screenName,
         }}
         options={{
           tweetLimit: "10",
         }}
       />
-      <SmartForm />
+      <SmartForm setScreenName={setScreenName} />
     </div>
   );
 };
